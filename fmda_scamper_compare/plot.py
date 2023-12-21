@@ -3,6 +3,7 @@ import plotly.express as px
 import plotly.io as pio
 pio.templates.default = "seaborn"
 
+FIG_HEIGHT=600
 
 def plot_ecdf(
     data, xlabel="Values", ylabel="Proportion", title="ECDF Plot", subtitle=""
@@ -31,6 +32,8 @@ def plot_ecdf(
         #   hover_name=df.index,
         marginal="histogram",
     )
+
+    fig.update_layout(height=FIG_HEIGHT)
 
     return fig
 
@@ -69,5 +72,7 @@ def plot_compare_dists(
     fig.update_layout(
         bargap=0.2, bargroupgap=0.1, xaxis_title=xlabel, yaxis_title=ylabel
     )
+
+    fig.update_layout(height=FIG_HEIGHT)
 
     return fig
